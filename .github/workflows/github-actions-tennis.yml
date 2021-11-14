@@ -3,7 +3,7 @@ on:
   schedule:
     - cron: 1 0 * * SUN
 steps:
-  env: 
+  - env: 
     NAME: ${{ secrets.NAME }}
     PHONE_NUMBER: ${{ secrets.PHONE_NUMBER }}
     EMAIL: ${{ secrets.EMAIL }}
