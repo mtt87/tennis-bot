@@ -3,7 +3,11 @@ const moment = require("moment");
 
 const day = moment().add(7, "days");
 
-console.log("booking for day:", day);
+console.log("booking for day:", day.format("DD MMMM yyy"));
+
+test.use({
+  headless: false,
+});
 
 test("test", async ({ page }) => {
   // Go to https://outlook.office365.com/owa/calendar/GardenHallsTennis@upp-ltd.com/bookings/
@@ -20,6 +24,9 @@ test("test", async ({ page }) => {
     await page.click("text=11:00");
   } else if (await page.isVisible("text=12:00")) {
     await page.click("text=12:00");
+  } else {
+    await page.pause();
+    throw new Error("no available time");
   }
   await page.fill('[placeholder="Name"]', process.env.NAME);
   await page.fill('[placeholder="Email"]', process.env.EMAIL);
