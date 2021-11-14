@@ -5,10 +5,6 @@ on:
 jobs:
   book:
     steps:
-      - env: 
-        NAME: ${{ secrets.NAME }}
-        PHONE_NUMBER: ${{ secrets.PHONE_NUMBER }}
-        EMAIL: ${{ secrets.EMAIL }}
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
@@ -17,3 +13,7 @@ jobs:
         run: npm i
       - name: Run your tests
         run: npm test
+        env: 
+          NAME: ${{ secrets.NAME }}
+          PHONE_NUMBER: ${{ secrets.PHONE_NUMBER }}
+          EMAIL: ${{ secrets.EMAIL }}
