@@ -2,16 +2,18 @@ name: Tennis Booking Bot
 on:
   schedule:
     - cron: 1 0 * * SUN
-steps:
-  - env: 
-    NAME: ${{ secrets.NAME }}
-    PHONE_NUMBER: ${{ secrets.PHONE_NUMBER }}
-    EMAIL: ${{ secrets.EMAIL }}
-  - uses: actions/checkout@v2
-  - uses: actions/setup-node@v2
-    with:
-      node-version: '16'
-  - name: Install dependencies
-    run: npm i
-  - name: Run your tests
-    run: npm test
+jobs:
+  book:
+    steps:
+      - env: 
+        NAME: ${{ secrets.NAME }}
+        PHONE_NUMBER: ${{ secrets.PHONE_NUMBER }}
+        EMAIL: ${{ secrets.EMAIL }}
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - name: Install dependencies
+        run: npm i
+      - name: Run your tests
+        run: npm test
