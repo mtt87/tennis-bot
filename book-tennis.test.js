@@ -5,10 +5,6 @@ const day = moment().add(7, "days");
 
 console.log("booking for day:", day.format("DD MMMM yyy"));
 
-test.use({
-  headless: false,
-});
-
 test("test", async ({ page }) => {
   // Go to https://outlook.office365.com/owa/calendar/GardenHallsTennis@upp-ltd.com/bookings/
   await page.goto(
