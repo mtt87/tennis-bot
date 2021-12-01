@@ -13,7 +13,7 @@ jobs:
       - name: Install operating system dependencies
         run: npx playwright install-deps
       - name: Install dependencies
-        run: npm i
+        run: npm ci
       - name: Run your tests
         run: npm test
         env: 
