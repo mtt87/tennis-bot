@@ -14,10 +14,10 @@ test("test", async ({ page }) => {
   await page.click(
     `[aria-label="${day.format("DD MMMM yyy")}. Times available"]`
   );
-  if (await page.isVisible("text=10:00")) {
-    await page.click("text=10:00");
-  } else if (await page.isVisible("text=11:00")) {
+  if (await page.isVisible("text=11:00")) {
     await page.click("text=11:00");
+  } else if (await page.isVisible("text=10:00")) {
+    await page.click("text=10:00");
   } else if (await page.isVisible("text=12:00")) {
     await page.click("text=12:00");
   } else {
